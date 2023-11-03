@@ -15,6 +15,7 @@ export interface Inputs {
   continue_on_error: boolean;
   new_command_on_retry: string | undefined;
   retry_on_exit_code: number | undefined;
+  retry_trigger_error_message: string | undefined;
 }
 
 export function getInputNumber(id: string, required: boolean): number | undefined {
@@ -75,6 +76,7 @@ export function getInputs(): Inputs {
   const continue_on_error = getInputBoolean('continue_on_error');
   const new_command_on_retry = getInput('new_command_on_retry');
   const retry_on_exit_code = getInputNumber('retry_on_exit_code', false);
+  const retry_trigger_error_message = getInput('retry_trigger_error_message');
 
   return {
     timeout_minutes,
@@ -90,5 +92,6 @@ export function getInputs(): Inputs {
     continue_on_error,
     new_command_on_retry,
     retry_on_exit_code,
+    retry_trigger_error_message,
   };
 }
