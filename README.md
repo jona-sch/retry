@@ -60,6 +60,11 @@ Retries an Action step on failure or timeout. This is currently intended to repl
 
 **Optional** Specific exit code to retry on. This will only retry for the given error code and fail immediately other error codes.
 
+### `retry_trigger_error_message`
+
+**Optional** Specific error message to retry on. This will only retry if the output contains this error message and fail immediately if not.
+
+
 ## Outputs
 
 ### `total_attempts`

@@ -145,6 +145,9 @@ async function runAction(inputs: Inputs) {
         throw error;
       } else if (inputs.retry_on_exit_code && inputs.retry_on_exit_code !== exit) {
         throw error;
+      } else if (inputs.retry_trigger_error_message && !error.message.contains(inputs.retry_trigger_error_message)) {
+        // error does not contain the expected substring
+        throw error;
       } else if (exit > 0 && inputs.retry_on === 'timeout') {
         // error: error
         throw error;
